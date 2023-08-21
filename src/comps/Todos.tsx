@@ -5,7 +5,7 @@ import classes from './Todos.module.css'
 const Todos: React.FC<{items: TodoModel[], onRemoveTodo: (id: string)=>void}> = ({items, onRemoveTodo}) => {
     return ( 
         <ul className={classes.todos}>
-            {items.map(item => <Todo key={item.id} item={item} onRemoveTodo={onRemoveTodo}/>)}
+            {items.map(item => <Todo key={item.id} item={item} onRemoveTodo={onRemoveTodo.bind(null, item.id)}/>)}
         </ul>
      );
 }
